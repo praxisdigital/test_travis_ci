@@ -45,7 +45,8 @@ before_install:
   - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs --config-set installed_paths $PHPCOMPAT_DIR; fi
   # After CodeSniffer install you should refresh your path.
   - if [[ "$SNIFF" == "1" ]]; then phpenv rehash; fi
-
+  # Make file executable
+  - chmod +x travis_test.sh
 
 # Run test script commands.
 # All commands must exit with code 0 on success. Anything else is considered failure.
