@@ -56,8 +56,12 @@ script:
   # If the custom ruleset is named `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist` or `phpcs.xml.dist`
   # and, like the travis script, is in the root of the project, you can leave
   # out the `--standard=` part of the command.
-  - exit 0;
   - if [[ "$SNIFF" == "1" ]]; then
-        $PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml;
+        RESULT=$PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml;
+        if [ "$RESULT" == 2 ]; then
+            exit 0;
+        else
+            exit 1;
+        fi
     fi
   
