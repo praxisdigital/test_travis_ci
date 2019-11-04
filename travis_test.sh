@@ -7,7 +7,7 @@ find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 # and, like the travis script, is in the root of the project, you can leave
 # out the `--standard=` part of the command.
 if [[ "$SNIFF" == "1" ]]; then
-    RESULT=($PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml);
+    RESULT=$($PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml);
     echo "Result code: ${RESULT}\n";
     if [ "$RESULT" == 2 ]; then
         exit 0;
