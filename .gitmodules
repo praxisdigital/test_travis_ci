@@ -1,3 +1,0 @@
-[submodule "my_second_submodule"]
-	path = my_second_submodule
-	url = https://github.com/johnnypraxis/my_second_submodule
