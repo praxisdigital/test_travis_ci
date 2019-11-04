@@ -1,12 +1,5 @@
 #!/usr/bin/bash
 
-function testphp()
-{
-    ($PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml)
-    local t1=$?
-    return $t1
-}
-
 # Search for PHP syntax errors.
 find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 # Run PHPCS.
@@ -14,9 +7,10 @@ find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 # and, like the travis script, is in the root of the project, you can leave
 # out the `--standard=` part of the command.
 if [[ "$SNIFF" == "1" ]]; then
-    RESULT=testphp;
+    RESULT=`$PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml`;
     echo "Result code: ${RESULT}\n";
-    if [ "$RESULT" == 2 ]; then
+    
+    if [ "$RESULT" == *"No syntax errors detected"* ]; then
         exit 0;
     else
         exit 1;
