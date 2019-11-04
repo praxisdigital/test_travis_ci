@@ -13,7 +13,7 @@ matrix:
     - php: nightly
 
 before_install:
-  - apt install composer
+  - sudo apt install composer
   - composer self-update
   - composer require phpunit/phpunit
 
