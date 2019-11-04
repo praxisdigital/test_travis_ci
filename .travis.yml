@@ -15,6 +15,7 @@ matrix:
 before_install:
   - composer self-update
   - composer require phpunit/phpunit
+  - composer require squizlabs/php_codesniffer
 
 script:
   - vendor/bin/phpcs . --colors
