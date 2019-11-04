@@ -10,7 +10,7 @@ if [[ "$SNIFF" == "1" ]]; then
     RESULT=`$PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml`;
     echo "Result code: ${RESULT}\n";
     
-    if [ "$RESULT" == *"No sniffs were registered"* ]; then
+    if [[ "$RESULT" == *"No sniffs were registered"* ]]; then
         exit 0;
     else
         exit 1;
