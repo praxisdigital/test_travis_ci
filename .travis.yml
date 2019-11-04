@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 
 language: php
 
@@ -14,7 +14,7 @@ matrix:
 
 before_install:
   - php composer-setup.php --install-dir=bin
-  - php composer-setup.php --filename=composer
+  - sudo php composer-setup.php --filename=composer
   - composer self-update
   - composer require phpunit/phpunit
 
