@@ -1,7 +1,7 @@
 <?php
 namespace mytest;
 
-class Testing
+class JustTesting
 {
     /**
      * Test
