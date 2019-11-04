@@ -13,8 +13,7 @@ matrix:
     - php: nightly
 
 before_install:
-  - php composer-setup.php --install-dir=bin
-  - sudo php composer-setup.php --filename=composer
+  - apt install composer
   - composer self-update
   - composer require phpunit/phpunit
 
