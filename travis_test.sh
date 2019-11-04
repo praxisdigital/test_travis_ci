@@ -9,8 +9,8 @@ find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 if [[ "$SNIFF" == "1" ]]; then
     RESULT=`$PHPCS_DIR/bin/phpcs . --standard=./custom-ruleset.xml`;
     if [ "$RESULT" == 2 ]; then
-        exit 1;
-    else
         exit 0;
+    else
+        exit 1;
     fi
 fi
