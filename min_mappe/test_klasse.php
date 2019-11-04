@@ -9,5 +9,5 @@ class JustTesting
     public function tester()
     {
         return 'test';
-    }
+    }//end tester()
 }
